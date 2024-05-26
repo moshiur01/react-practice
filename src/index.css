@@ -19,3 +19,8 @@
   left: -22px;
   top: 11px;
 }
+
+.posterBg {
+  background-image: url("./assets/img/poster.jfif");
+  object-fit: cover;
+}
