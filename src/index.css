@@ -6,3 +6,16 @@
   background-image: url("/public/shoe-banner.jpg");
   object-fit: cover;
 }
+
+.home-page-products {
+  content: "";
+  background: var(--DTPrimaryColor);
+  float: left;
+  width: 4px;
+  height: 65px;
+  position: absolute;
+  bottom: auto;
+  right: auto;
+  left: -22px;
+  top: 11px;
+}

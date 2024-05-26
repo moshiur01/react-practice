@@ -1,26 +1,31 @@
-import { Link } from "react-router-dom";
-
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+import bag from "../assets/img/bag.png";
 const SingleProduct = ({ shoe }) => {
-  const { id, title, brand, price, description, image_url } = shoe;
+  const { id, title, price, image_url } = shoe;
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <figure>
-        <img src={image_url} alt="Shoes" />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <h3 className="text-xl font-semibold">{brand}</h3>
-        <h3 className="text-xl font-semibold">{price}</h3>
-        <p>{description}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">
-            <Link to={`/products/${id}`}>See details</Link>
-          </button>
+    <Link to={`/products/${id}`} className="pt-8">
+      <div className="card w-96 bg-base-100 hover:translate-y-3 hover:duration-1000 ">
+        <figure className="shadow-lg  hover:border-black rounded-lg hover:border-2 border-t">
+          <img src={image_url} alt="Shoes" />
+        </figure>
+
+        <div className="card-body text-center">
+          <h2 className="text-xl font-bold py-4 border-b hover:text-[#571F7C]">
+            {title.toUpperCase()}
+          </h2>
+          <div className="flex justify-between">
+            <div>
+              <p className="font-bold text-2xl">${price}</p>
+            </div>
+            <div>
+              <img className="size-9" src={bag} alt="" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
