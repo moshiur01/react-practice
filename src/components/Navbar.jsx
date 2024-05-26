@@ -4,12 +4,12 @@ import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const { logout, user } = useAuth();
 
-  const handleLogout = async()=>{
-    await logout()
-  }
+  const handleLogout = async () => {
+    await logout();
+  };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 container mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,7 +49,7 @@ const Navbar = () => {
               </>
             )}
             {user && (
-              <li>
+              <li className="">
                 <Link to={"/dashboard"}>Dashboard</Link>
               </li>
             )}
@@ -65,10 +65,10 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-3xl font-bold">Shoe Hut</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 has-[li]:font-bold text-xl">
           <li>
             <Link to={"/"}>Home</Link>
           </li>
@@ -76,17 +76,17 @@ const Navbar = () => {
             <Link to={"/about"}>About</Link>
           </li>
           {!user && (
-            <>
+            <div className="has-[li]:font-bold text-xl">
               <li>
                 <Link to={"/login"}>Login</Link>
               </li>
               <li>
                 <Link to={"/register"}>Register</Link>
               </li>
-            </>
+            </div>
           )}
           {user && (
-            <li>
+            <li className="font-bold text-xl">
               <Link to={"/dashboard"}>Dashboard</Link>
             </li>
           )}
@@ -96,14 +96,17 @@ const Navbar = () => {
         {user && (
           <button
             onClick={handleLogout}
-            className="btn bg-red-500 text-white hidden lg:block"
+            className="btn bg-red-500 text-white hidden lg:block h-1"
           >
             Logout
           </button>
         )}
-        <div className="avatar">
-          <div className="w-12 rounded-full border-2 border-black">
-            <img src={user?.photoURL || "/public/placeholder.jpg"} />
+        <div className="avatar size-10">
+          <div className="w-12 rounded-full border-2 border-black ">
+            <img
+              src={user?.photoURL || "/public/placeholder.jpg"}
+              className=""
+            />
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@ import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
-      <div>
+      <div className="container mx-auto">
         <Outlet />
       </div>
       <Footer />

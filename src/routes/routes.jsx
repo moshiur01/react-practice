@@ -1,19 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Login from "../pages/Login";
-import ErrorPage from "../pages/ErrorPage";
 import DashboardLayout from "../layouts/DashboardLayout";
+import MainLayout from "../layouts/MainLayout";
+import About from "../pages/About";
+import AddProducts from "../pages/AddProducts";
+import AllProducts from "../pages/AllProducts";
 import Dashboard from "../pages/Dashboard";
+import EditProducts from "../pages/EditProducts";
+import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import ProductDetails from "../pages/ProductDetails";
 import Registration from "../pages/Registration";
 import PrivateRoute from "./private/PrivateRoute";
-import ProductDetails from "../pages/ProductDetails";
-import AllProducts from "../pages/AllProducts";
-import AddProducts from "../pages/AddProducts";
-import EditProducts from "../pages/EditProducts";
 
 export const router = createBrowserRouter([
+  //normal layout
   {
     path: "/",
     element: <MainLayout />,
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/shoes/${params.id}`),
+          fetch(`http://localhost:3000/shoes/${params.idf}`),
       },
       {
         path: "/about",
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  //dashboard layout
   {
     path: "dashboard",
     element: <DashboardLayout />,
