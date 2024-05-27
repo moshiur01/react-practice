@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 container mx-auto border-b">
+    <div className="navbar bg-base-100 container mx-auto border-b mb-3 sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,14 +39,14 @@ const Navbar = () => {
               <Link to={"/about"}>About</Link>
             </li>
             {!user && (
-              <>
+              <div className="flex gap-4">
                 <li>
                   <Link to={"/login"}>Login</Link>
                 </li>
                 <li>
                   <Link to={"/register"}>Register</Link>
                 </li>
-              </>
+              </div>
             )}
             {user && (
               <li className="">
@@ -76,7 +76,7 @@ const Navbar = () => {
             <Link to={"/about"}>About</Link>
           </li>
           {!user && (
-            <div className="has-[li]:font-bold text-xl">
+            <div className="has-[li]:font-bold text-xl flex ">
               <li>
                 <Link to={"/login"}>Login</Link>
               </li>

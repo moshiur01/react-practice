@@ -12,7 +12,7 @@ const SalePoster = () => {
           </h2>
           <div className="relative">
             <div className="relative z-10">
-              <button className="text-white bg-[#571F7C] w-44 h-14 my-auto">
+              <button className="text-white bg-[#571F7C] w-44 h-14 my-auto hover:bg-black transition duration-500">
                 SHOP NOW
               </button>
             </div>
