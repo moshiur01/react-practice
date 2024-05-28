@@ -8,6 +8,9 @@ const Dashboard = () => {
         WellCome to Dashboard{" "}
         <span className="font-semibold">{user.displayName}</span>
       </p>
+      <p className="text-4xl mt-4">
+        Email: <span>{user?.email}</span>
+      </p>
 
       <p className="text-2xl mt-4">
         Manage the website content through Sidebar
