@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import EditProductModal from "../components/Modal/EditProductModal";
 
 const EditProducts = () => {
   const shoe = useLoaderData();
@@ -10,6 +11,8 @@ const EditProducts = () => {
   const [id, setId] = useState(shoe.id);
   const [description, setDescription] = useState(shoe.description);
   const [image_url, setImageURL] = useState(shoe.image_url);
+
+  const [updateData, setUpdateData] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,24 +27,18 @@ const EditProducts = () => {
 
     const data = { id, title, brand, price, description, image_url };
 
-    await fetch(`http://localhost:3000/shoes/${shoe.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    setUpdateData(data);
   };
 
   return (
     <div>
       <h1 className="text-5xl font-bold text-center">Edit Product</h1>
 
-      <div className="my-16">
-        <form onSubmit={handleSubmit}>
+      <div className="my-16 mx-12">
+        <form onSubmit={handleSubmit} className="flex flex-wrap gap-8">
+          {/* name field  */}
           <div className="mt-2">
+            <label htmlFor="name">Enter Shoe Name</label>
             <input
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
@@ -51,7 +48,10 @@ const EditProducts = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
+
+          {/* brand field  */}
           <div className="mt-2">
+            <label htmlFor="brand">Enter Brand Name</label>
             <input
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
@@ -62,6 +62,7 @@ const EditProducts = () => {
             />
           </div>
           <div className="mt-2">
+            <label htmlFor="price">Enter Price</label>
             <input
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="number"
@@ -72,9 +73,12 @@ const EditProducts = () => {
             />
           </div>
           <div className="mt-2">
-            <input
+            <label htmlFor="description">Enter Description Details</label>
+            <textarea
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
+              rows={4}
+              cols={12}
               name="description"
               placeholder="Description"
               value={description}
@@ -82,6 +86,7 @@ const EditProducts = () => {
             />
           </div>
           <div className="mt-2">
+            <label htmlFor="image_url">Enter Shoe Image URL Link</label>
             <input
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
@@ -92,6 +97,7 @@ const EditProducts = () => {
             />
           </div>
           <div className="mt-2">
+            <label htmlFor="id">Enter Shoe ID</label>
             <input
               className="bg-gray-100 p-4 w-full border border-black rounded-lg"
               type="text"
@@ -101,15 +107,23 @@ const EditProducts = () => {
               onChange={(e) => setId(e.target.value)}
             />
           </div>
-          <div className="mt-2 flex justify-center items-center">
+          <div className="mt-2 flex justify-center items-center ">
             <input
-              className="btn mt-4 w-full bg-red-500 text-white p-4"
+              className="btn mt-4 w-full bg-blue-500 text-white p-4 hover:bg-blue-600"
               type="submit"
-              value="Add product"
+              value="Edit product"
+              onClick={() =>
+                document.getElementById(`editModal+${id}`).showModal()
+              }
             />
           </div>
         </form>
       </div>
+      <EditProductModal
+        modalId={`editModal+${id}`}
+        productData={updateData}
+        productId={shoe?.id}
+      />
     </div>
   );
 };

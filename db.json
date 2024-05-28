@@ -4,7 +4,7 @@
       "id": "1",
       "title": "zapatos dg mercadolibre",
       "brand": "Nike",
-      "price": "160",
+      "price": "170",
       "description": "The Nike Air Max 270 combines modern comfort with a throwback style inspired by the Air Max 180 and Air Max 93.",
       "image_url": "https://huge-shoes.myshopify.com/cdn/shop/products/shoe12_968efbaa-1956-4621-93d2-1f1f8fdc3d11_600x.jpg?v=1494325529"
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "title": "men's harpoon 2 eye boot",
       "brand": "Reebok",
-      "price": 75,
+      "price": "175",
       "description": "Reebok's Classic Leather sneakers are timeless icons, offering everyday comfort and a sleek look with their soft leather upper.",
       "image_url": "https://huge-shoes.myshopify.com/cdn/shop/products/shoe5_5008bddd-b8ea-4eb6-b9a6-93ec50c62c39_600x.jpg?v=1494316307"
     },
@@ -31,14 +31,6 @@
       "price": 160,
       "description": "The ASICS Gel-Kayano 27 provides premium stability and cushioning, perfect for overpronators seeking a smooth, comfortable run.",
       "image_url": "https://huge-shoes.myshopify.com/cdn/shop/products/shoe12_600x.jpg?v=1494314503"
-    },
-    {
-      "id": "5",
-      "title": "Chuck Taylor All Star",
-      "brand": "Converse",
-      "price": 55,
-      "description": "Converse Chuck Taylor All Star sneakers are an all-time classic, offering a durable canvas upper and the iconic rubber toe cap.",
-      "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1652.jpg?t=st=1716455007~exp=1716458607~hmac=af9444d4ad6e512ec5536161b170df2e38eb9e88746863bf39c538aff9e2d986&w=1480"
     }
   ]
 }

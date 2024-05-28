@@ -1,4 +1,9 @@
+import { useState } from "react";
+import AddProductModal from "../components/Modal/AddProductModal";
+
 const AddProducts = () => {
+  const [addProductData, setAddProductData] = useState({});
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -12,18 +17,7 @@ const AddProducts = () => {
 
     const data = { id, title, brand, price, description, image_url };
 
-    await fetch("http://localhost:3000/shoes", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        form.reset();
-      });
+    setAddProductData(data);
   };
 
   return (
@@ -82,6 +76,7 @@ const AddProducts = () => {
           </div>
           <div className="mt-2 flex justify-center items-center">
             <input
+              onClick={() => document.getElementById("add-product").showModal()}
               className="btn mt-4 w-full bg-red-500 text-white p-4"
               type="submit"
               value="Add product"
@@ -89,6 +84,7 @@ const AddProducts = () => {
           </div>
         </form>
       </div>
+      <AddProductModal productId={"add-product"} productData={addProductData} />
     </div>
   );
 };

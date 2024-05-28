@@ -1,5 +1,19 @@
+import useAuth from "../hooks/useAuth";
+
 const Dashboard = () => {
-  return <div>This is Dashboard</div>;
+  const { user } = useAuth();
+  return (
+    <div className="">
+      <p className="text-5xl">
+        WellCome to Dashboard{" "}
+        <span className="font-semibold">{user.displayName}</span>
+      </p>
+
+      <p className="text-2xl mt-4">
+        Manage the website content through Sidebar
+      </p>
+    </div>
+  );
 };
 
 export default Dashboard;

@@ -17,7 +17,7 @@ const AllProducts = () => {
   return (
     <div>
       <h1 className="text-5xl font-bold text-center">All Produts</h1>
-      <div className="my-16 flex flex-wrap gap-4">
+      <div className="my-16 grid grid-cols-4 gap-3">
         {products.map((shoe) => (
           <SingleProductCardDashboard
             key={shoe.id}
